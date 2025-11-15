@@ -77,5 +77,4 @@ Avaliar o impacto de uma campanha de cupons por meio de um teste A/B, incluindo:
 Relatório final em PDF
 
 # 6. Autor
-**Daniel Leite**  
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Daniel%20Leite-white?style=for-the-badge&logo=linkedin&logoColor=0A66C2)](https://www.linkedin.com/in/daniel-leite-93862b160/)

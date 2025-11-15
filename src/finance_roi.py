@@ -1,22 +1,16 @@
-def calculate_roi(
-    uplift_retencao: float,
-    receita_media: float,
-    custo_cupom: float,
-    n_usuarios: int
-):
-    """
-    Calcula ROI simples baseado em:
-    - ganho incremental de receita
-    - custo total da campanha
-    """
+import numpy as np
 
-    receita_incremental = uplift_retencao * receita_media * n_usuarios
-    custo_total = custo_cupom * n_usuarios
+def monte_carlo_roi(n_users, sims=10_000):
+    np.random.seed(42)
+    custo = np.clip(np.random.normal(10, 3, sims), 1, None)
+    receita = np.clip(np.random.normal(35, 10, sims), 5, None)
+    op = np.clip(np.random.normal(0.15, 0.05, sims), 0, 1)
 
-    roi = (receita_incremental - custo_total) / custo_total
+    roi = []
+    for i in range(sims):
+        custo_total = custo[i] * n_users
+        receita_total = receita[i] * n_users
+        custos = custo_total + custo_total * op[i]
+        roi.append((receita_total - custos) / custos)
 
-    return {
-        "receita_incremental": receita_incremental,
-        "custo_total": custo_total,
-        "ROI": roi
-    }
+    return np.array(roi)

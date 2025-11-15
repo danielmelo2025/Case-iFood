@@ -1,35 +1,20 @@
 import pandas as pd
 
+def safe_qcut(series, q):
+    try:
+        return pd.qcut(series, q, labels=False, duplicates="drop") + 1
+    except:
+        ranked = series.rank(method="first")
+        return pd.qcut(ranked, q, labels=False, duplicates="drop") + 1
 
-def build_rfm(df):
-    """Calcula tabela RFM a partir dos pedidos."""
-    max_date = df["order_created_at"].max()
+def calculate_rfm(df, ref_date, bins=4):
+    df = df.copy()
+    df["recency"] = (ref_date - df["last_order_date"]).dt.days
 
-    rfm = df.groupby("customer_id").agg({
-        "order_created_at": lambda x: (max_date - x.max()).days,
-        "order_id": "count",
-        "order_total_amount": "sum"
-    }).reset_index()
+    df["recency_score"] = safe_qcut(df["recency"], bins)
+    df["frequency_score"] = safe_qcut(df["order_count"], bins)
+    df["monetary_score"] = safe_qcut(df["total_spent"], bins)
 
-    rfm.columns = ["customer_id", "recency", "frequency", "monetary"]
+    df["recency_score"] = (bins + 1) - df["recency_score"]
 
-    # Normalizar com quantis
-    rfm["R"] = pd.qcut(rfm["recency"], 5, labels=[5,4,3,2,1])
-    rfm["F"] = pd.qcut(rfm["frequency"].rank(method="first"), 5, labels=[1,2,3,4,5])
-    rfm["M"] = pd.qcut(rfm["monetary"], 5, labels=[1,2,3,4,5])
-
-    rfm["segment"] = rfm["R"].astype(str) + rfm["F"].astype(str) + rfm["M"].astype(str)
-
-    return rfm
-
-
-def ab_by_segment(rfm, ab_ref, recencia_jan):
-    """Cruza segmentos com os resultados do experimento."""
-    df_seg = (
-        rfm[["customer_id", "segment"]]
-        .merge(ab_ref, on="customer_id", how="left")
-        .merge(recencia_jan, on="customer_id", how="left")
-        .fillna({"is_target": "control", "retido_jan": 0})
-    )
-
-    return df_seg.groupby(["segment", "is_target"])["retido_jan"].mean().unstack()
+    return df

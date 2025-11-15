@@ -105,8 +105,38 @@ Métricas avaliadas:
 Os resultados são discutidos no relatório.
 
 
+# 6. Segmentação de Usuários
+Segmentação implementada no módulo: ``` text src/segmentation.py ```
+
+- RFM (Recency, Frequency, Monetary)
+- Quantis para criação de score R, F e M
+- Criação do segmento via concatenação R+F+M
+- Análise da performance do A/B dentro de cada segmento
+- Essa parte é essencial para responder o item 2 do case
 
 
+# 7. Viabilidade Financeira (ROI)
+Simulações e premissas implementadas em: ``` text src/finance_roi.py ```
 
+Inclui:
+- Estimativa de custo do cupom
+- Incrementalidade observada
+- Modelo de cálculo do impacto financeiro
+- ROI e Payback do experimento
+- Cenários otimista / base / pessimista
+
+ # 8. Relatório Final (PDF)
+O documento ```text reports/relatorio_final.pdf ```contém:
+
+Explicação simples e visual para liderança
+- Conclusões do teste
+- Recomendações estratégicas
+- Tamanho estimado do impacto
+- Sugestão de próximos testes A/B
+- Premissas explicitadas 
+
+
+# 10. Autor
+Daniel Leite
 
 

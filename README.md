@@ -1,141 +1,81 @@
 # Case Técnico de Data Analysis – iFood
 
-Este repositório contém a solução completa do Case Técnico de Data Analysis do iFood, incluindo:
+Este repositório contém a solução completa do Case Técnico de Data Analysis do iFood, com:
 
-- Notebook de Processamento e Análise de Dados
-- Pipeline de ETL
+- ETL completo
 - Análise estatística do teste A/B
 - Segmentação de usuários (RFM)
 - Simulação de viabilidade financeira
-- Relatório final para a liderança
+- Recomendações para negócio
+- Notebook 100% executável no Google Colab
 
-A solução foi construída para ser reprodutível, clara e pronta para produção, seguindo boas práticas de analytics engineering, estatística e storytelling de dados.
+---
 
+## 1. Executar o Notebook
 
-# 1. Estrutura do Repositório
-``` text
-ifood-case/
+Clique abaixo para rodar diretamente no Google Colab:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/danielmelo2025/Case-iFood/blob/main/notebooks/case_ifood.ipynb)
+
+Isso garante reprodutibilidade sem necessidade de instalação local.
+
+---
+
+## 2. Estrutura do Repositório
+
+```text
+Case-iFood/
 │
 ├── README.md
-├── requirements.txt
-├── .gitignore
+├── requirements.txt        # Dependências (usado para execução local)
 │
 ├── notebooks/
-│   └── case_ifood.ipynb          # Notebook principal com ETL + A/B + segmentações
+│   └── case_ifood.ipynb    # Notebook principal com ETL, A/B, RFM e ROI
 │
-├── src/
-│   ├── etl.py                    # Download, descompressão, leitura e limpeza
-│   ├── ab_test.py                # Testes estatísticos e métricas A/B
-│   ├── segmentation.py           # Segmentação RFM + análises por cluster
-│   └── finance_roi.py            # Premissas + modelo de viabilidade financeira
-│
-├── data/
-│   ├── raw/                      # Arquivos .gz / .tar.gz baixados
-│   └── processed/                # Parquet limpos e bases tratadas
+├── src/                    
+│   ├── etl.py
+│   ├── ab_test.py
+│   ├── segmentation.py
+│   └── finance_roi.py
 │
 └── reports/
-    └── Case_iFood_Daniel_Leite.pdf       # Arquivo final explicando conclusões e recomendações
+    └── Case_iFood_Daniel_Leite.pdf # Relatório final apresentado às lideranças
+```
+# 3. Instruções de Execução Local
+
+Clone o repositório: 
+```
+git clone https://github.com/danielmelo2025/Case-iFood.git
+cd Case-iFood
 ```
 
-# 2. Objetivo do Case
-
-O objetivo é analisar um teste A/B realizado pelo iFood para avaliar o impacto de um cupom especial na retenção de usuários, além de:
-
-- Avaliar impacto estatístico do experimento
-- Entender quais segmentos se beneficiam mais
-- Calcular a viabilidade financeira da ação
-- Propor recomendações estratégicas para negócio
-- Sugerir próximos passos com estimativa de impacto
-
-Toda a solução está implementada no notebook case_ifood.ipynb.
-
-# 3. Pré-requisitos
-
-Instale as dependências:
-``` text
+Instale dependências:
+```
 pip install -r requirements.txt
 ```
 
-Abra o notebook:
-``` text
+Execute o notebook:
+```
 jupyter notebook notebooks/case_ifood.ipynb
 ```
-O notebook:
 
-Faz o download automático dos arquivos do case
-- Descompacta e trata os dados
-- Cria os datasets analíticos
-- Realiza toda a análise A/B
-- Gera segmentações
-- Cria gráficos e tabelas
-- Exporta artefatos usados no relatório final
+Observação: como a solução é totalmente compatível com Google Colab, recomenda-se executar por lá.
 
-Não é necessário baixar manualmente os dados — tudo é feito pelo módulo etl.py.
+# 4. Objetivo do Case
+Avaliar o impacto de uma campanha de cupons por meio de um teste A/B, incluindo:
+- Definição de indicadores de sucesso
+- Validação estatística
+- Entendimento de comportamento dos usuários via segmentação
+- Avaliação financeira da ação
+- Recomendações e próximos passos
 
-# 4. ETL — Extração, Transformação e Carregamento
-Todo o pipeline está no módulo: ``` text src/etl.py ```
+# 5. Entregáveis conforme solicitado no case
 
-O ETL realiza:
+- Repositório GitHub
+- Notebook com análise
+- README contendo instruções
+Relatório final em PDF
 
-- Download dos arquivos originais (.gz e .tar.gz)
--  Descompressão automática
-- Leitura otimizada dos 3.6M pedidos
-- Normalização de schemas
-- Remoção de erros e registros inválidos
-- Tratamento de datas e monetização
-- Criação de base analítica única (fato + dimensões)
-- Exportação em Parquet para processamento eficiente
-
-A base final fica salva em: ``` text data/processed/base_final.parquet ```
-
-# 5. Análise do Teste A/B
-A análise estatística do experimento está implementada em: ``` text src/ab_test.py ```
-
-Métricas avaliadas:
-- Retenção (usuários que voltaram no período seguinte)
-- Total de pedidos por usuário
-- Receita média
-- Ticket médio
-- Atividade mensal
-- Testes estatísticos
-- Z-test para proporções (retenção)
-- Welch T-test (ticket médio)
-- Bootstrap
-
-Os resultados são discutidos no relatório.
-
-
-# 6. Segmentação de Usuários
-Segmentação implementada no módulo: ``` text src/segmentation.py ```
-
-- RFM (Recency, Frequency, Monetary)
-- Quantis para criação de score R, F e M
-- Criação do segmento via concatenação R+F+M
-- Análise da performance do A/B dentro de cada segmento
-- Essa parte é essencial para responder o item 2 do case
-
-
-# 7. Viabilidade Financeira (ROI)
-Simulações e premissas implementadas em: ``` text src/finance_roi.py ```
-
-Inclui:
-- Estimativa de custo do cupom
-- Incrementalidade observada
-- Modelo de cálculo do impacto financeiro
-- ROI e Payback do experimento
-- Cenários otimista / base / pessimista
-
- # 8. Relatório Final (PDF)
-O documento ```text reports/Case_iFood_Daniel_Leite.pdf ```contém:
-
-- Conclusões do teste
-- Recomendações estratégicas
-- Tamanho estimado do impacto
-- Sugestão de próximos testes A/B
-- Premissas explicitadas 
-
-
-# 9. Autor
-**Daniel Leite**
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?logo=linkedin)](https://www.linkedin.com/in/daniel-leite-559b30255/)
-
+# 6. Autor
+**Daniel Leite**  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-000?style=for-the-badge&logo=linkedin&logoColor=0A66C2)](https://www.linkedin.com/in/daniel-leite-457660187/)

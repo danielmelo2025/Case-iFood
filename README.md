@@ -30,7 +30,7 @@ Case-iFood/
 ├── requirements.txt        # Dependências (usado para execução local)
 │
 ├── notebooks/
-│   └── case_ifood.ipynb    # Notebook principal com ETL, A/B, RFM e ROI
+│   └── Case_iFood_Daniel_Leite.ipynb    # Notebook principal com ETL, A/B, RFM e ROI
 │
 ├── src/                    
 │   ├── etl.py
@@ -78,4 +78,4 @@ Relatório final em PDF
 
 # 6. Autor
 **Daniel Leite**  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-000?style=for-the-badge&logo=linkedin&logoColor=0A66C2)](https://www.linkedin.com/in/daniel-leite-457660187/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Daniel%20Leite-white?style=for-the-badge&logo=linkedin&logoColor=0A66C2)](https://www.linkedin.com/in/daniel-leite-93862b160/)

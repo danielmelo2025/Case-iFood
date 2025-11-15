@@ -34,7 +34,7 @@ ifood-case/
 │   └── processed/                # Parquet limpos e bases tratadas
 │
 └── reports/
-    └── Case iFood Daniel Leite.pdf       # Arquivo final explicando conclusões e recomendações
+    └── Case_iFood_Daniel_Leite.pdf       # Arquivo final explicando conclusões e recomendações
 ```
 
 # 2. Objetivo do Case
@@ -126,7 +126,7 @@ Inclui:
 - Cenários otimista / base / pessimista
 
  # 8. Relatório Final (PDF)
-O documento ```text reports/Case iFood Daniel Leite.pdf ```contém:
+O documento ```text reports/Case_iFood_Daniel_Leite.pdf ```contém:
 
 - Conclusões do teste
 - Recomendações estratégicas

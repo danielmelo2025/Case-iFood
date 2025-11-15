@@ -136,10 +136,7 @@ Explicação simples e visual para liderança
 - Premissas explicitadas 
 
 
-# 10. Autor
-Daniel Leite
-👤 10. Autor
-Daniel Leite
+# 9. Autor
+**Daniel Leite**
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?logo=linkedin)](https://www.linkedin.com/in/daniel-leite-559b30255/)
 
-Analista de Dados
-Marketing Digital • Growth • Modelagem Estatística

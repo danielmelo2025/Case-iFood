@@ -15,7 +15,7 @@ Este repositório contém a solução completa do Case Técnico de Data Analysis
 
 Clique abaixo para rodar diretamente no Google Colab:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/danielmelo2025/Case-iFood/blob/main/notebooks/case_ifood.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://drive.google.com/file/d/1C66WFOfESRlab8i9kmMVH3VC1oEfusog)
 
 Isso garante reprodutibilidade sem necessidade de instalação local.
 

@@ -15,7 +15,7 @@ Este repositório contém a solução completa do Case Técnico de Data Analysis
 
 Clique abaixo para rodar diretamente no Google Colab:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://drive.google.com/file/d/1C66WFOfESRlab8i9kmMVH3VC1oEfusog)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1C66WFOfESRlab8i9kmMVH3VC1oEfusog?authuser=1#scrollTo=AGiVcQcJGIOE)
 
 Isso garante reprodutibilidade sem necessidade de instalação local.
 

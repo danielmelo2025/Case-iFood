@@ -13,7 +13,7 @@ Este repositório contém a solução completa do Case Técnico de Data Analysis
 
 ## 1. Executar o Notebook
 
-Clique abaixo para rodar diretamente no Google Colab:
+Clique abaixo para rodar diretamente no Google Colab (recomendado):
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1C66WFOfESRlab8i9kmMVH3VC1oEfusog?authuser=1#scrollTo=AGiVcQcJGIOE)
 
@@ -77,4 +77,4 @@ Avaliar o impacto de uma campanha de cupons por meio de um teste A/B, incluindo:
 Relatório final em PDF
 
 # 6. Autor
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Daniel%20Leite-white?style=for-the-badge&logo=linkedin&logoColor=0A66C2)](https://www.linkedin.com/in/daniel-leite-93862b160/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Daniel%20Leite-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/daniel-leite-93862b160/)
